@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K-EXPRESS : 엔터테인먼트 뉴스</title>
+    <style>
+        :root { --n-green: #00c73c; --n-gray: #888; --n-border: #ebebeb; --n-bg: #f5f6f8; }
+        body { font-family: -apple-system,BlinkMacSystemFont,"Malgun Gothic",dotum,sans-serif; margin: 0; color: #222; line-height: 1.5; background: #fff; }
+        
+        /* Header chuẩn Naver */
+        header { border-bottom: 1px solid var(--n-border); padding: 15px 0; position: sticky; top: 0; background: #fff; z-index: 100; }
+        .nav-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; padding: 0 15px; }
+        .logo { font-size: 20px; font-weight: 900; text-decoration: none; color: #000; margin-right: 25px; }
+        .nav-menu { display: flex; gap: 15px; font-size: 14px; font-weight: 700; color: #555; }
+
+        .container { max-width: 1000px; margin: 25px auto; display: flex; gap: 30px; padding: 0 15px; }
+        .main-article { flex: 1; min-width: 0; }
+
+        /* Tiêu đề & Info */
+        .category { font-size: 13px; color: var(--n-gray); margin-bottom: 8px; font-weight: 700; }
+        h1 { font-size: 28px; font-weight: 800; line-height: 1.3; margin: 0 0 15px 0; letter-spacing: -1px; }
+        .article-meta { display: flex; justify-content: space-between; align-items: flex-end; padding-bottom: 15px; border-bottom: 1px solid #eee; margin-bottom: 25px; }
+        .reporter { font-size: 13px; color: #333; }
+        .reporter b { font-size: 14px; }
+        .publish-time { color: var(--n-gray); font-size: 12px; margin-top: 3px; }
+
+        /* Content */
+        .img-area { margin-bottom: 30px; }
+        .img-area img { width: 100%; border-radius: 2px; }
+        .img-cap { font-size: 12px; color: var(--n-gray); margin-top: 8px; text-align: center; }
+        .article-body { font-size: 16px; line-height: 1.8; color: #333; margin-bottom: 50px; white-space: pre-line; }
+
+        /* Comment Section - Naver Style */
+        .cmt-section { background: var(--n-bg); border-radius: 8px; padding: 20px; border: 1px solid var(--n-border); }
+        .cmt-title { font-size: 16px; font-weight: 800; margin-bottom: 15px; }
+        .cmt-input-box { background: #fff; border: 1px solid #ddd; border-radius: 4px; padding: 12px; margin-bottom: 20px; }
+        textarea { width: 100%; height: 45px; border: none; resize: none; outline: none; font-size: 14px; }
+        .cmt-foot { display: flex; justify-content: flex-end; border-top: 1px solid #f2f2f2; padding-top: 8px; }
+        .btn-submit { background: #000; color: #fff; border: none; padding: 6px 15px; font-weight: 700; font-size: 12px; cursor: pointer; }
+
+        .cmt-item { padding: 15px 0; border-bottom: 1px solid #eee; }
+        .cmt-item:last-child { border-bottom: none; }
+        .cmt-user { font-weight: 800; font-size: 13px; margin-bottom: 5px; display: flex; justify-content: space-between; }
+        .cmt-date { font-weight: 400; color: var(--n-gray); font-size: 11px; }
+        .cmt-text { font-size: 14px; color: #444; margin-bottom: 10px; }
+        .cmt-actions { display: flex; gap: 12px; align-items: center; }
+        .btn-action { font-size: 11px; color: var(--n-gray); cursor: pointer; font-weight: 700; }
+        
+        .vote-box { margin-left: auto; display: flex; gap: 6px; }
+        .v-btn { background: #fff; border: 1px solid #e1e1e1; padding: 2px 8px; border-radius: 12px; font-size: 11px; cursor: pointer; display: flex; align-items: center; gap: 3px; }
+        .v-btn b { color: #ff4444; }
+
+        /* Sidebar */
+        .sidebar { width: 300px; flex-shrink: 0; }
+        .side-box { border: 1px solid #eee; padding: 15px; margin-bottom: 20px; border-radius: 4px; }
+        .side-title { font-size: 15px; font-weight: 800; border-bottom: 1px solid #000; padding-bottom: 8px; margin-bottom: 12px; }
+        .side-item { font-size: 13px; font-weight: 600; margin-bottom: 10px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .side-item span { color: var(--n-green); margin-right: 8px; font-weight: 900; }
+
+        footer { text-align: center; padding: 30px; font-size: 11px; color: #bbb; border-top: 1px solid #eee; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-inner">
+        <a href="#" class="logo">K-EXPRESS</a>
+        <div class="nav-menu"><div>뉴스</div><div>랭킹</div><div>연예</div></div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="main-article">
+        <div class="category">연예 > 가요</div>
+        <h1 id="mainTitle">[단독] Hael 엔터, 신인 걸그룹 'LOPXEEVER' 컨셉 유출... "5세대 비주얼 쇼크"</h1>
+        
+        <div class="article-meta">
+            <div class="reporter">
+                <b>최지호 기자</b> <span style="color:#aaa; margin:0 5px">|</span> choi.jh@k-express.com
+                <div class="publish-time">입력 2026.03.29 01:20</div>
+            </div>
+            <div style="font-size:12px; color:#999; text-align:right">
+                조회수 21,405<br>추천 114
+            </div>
+        </div>
+
+        <div class="img-area">
+            <img src="HAEL ENTERTAINMENT.jpeg" alt="LOPXEEVER">
+            <div class="img-cap">▲ 최근 유출된 Hael 엔터테인먼트 신인 LOPXEEVER의 컨셉 프리뷰 ⓒ Hael Entertainment</div>
+        </div>
+
+        <div class="article-body">
+            Hael 엔터테인먼트가 준비 중인 5세대 걸그룹 'LOPXEEVER(롭시버)'가 정식 데뷔 전부터 뜨거운 감자로 떠올랐다. 
+
+            29일 가요계에 따르면, 각종 SNS와 커뮤니티를 통해 유출된 LOPXEEVER의 컨셉 이미지는 기존 걸그룹들의 정형화된 틀을 깨는 파격적인 비주얼로 전 세계 K-팝 팬들의 시선을 사로잡고 있다. 
+
+            Hael 엔터 측은 멤버 구성을 포함한 모든 정보를 극비로 관리하고 있으나, 업계 관계자들은 이번 그룹이 음악과 패션 모든 면에서 '아방가르드'한 시도를 할 것으로 내다봤다. 
+
+            한 관계자는 "LOPXEEVER는 Hael의 모든 역량을 쏟아부은 프로젝트"라며 "5세대 가요계에 새로운 패러다임을 제시할 것"이라고 확신했다.
+        </div>
+
+        <div class="cmt-section">
+            <div class="cmt-title">댓글 <span>4</span></div>
+            <div class="cmt-input-box">
+                <textarea placeholder="댓글을 입력해주세요."></textarea>
+                <div class="cmt-foot"><button class="btn-submit" onclick="addC()">등록</button></div>
+            </div>
+
+            <div id="cmtWrap">
+                <div class="cmt-item">
+                    <div class="cmt-user">kpop*** <span class="cmt-date live-time" data-min="5">5분 전</span></div>
+                    <div class="cmt-text">와 컨셉 미쳤다.. Hael 이번에 진짜 작정하고 나오는 듯.</div>
+                    <div class="cmt-actions">
+                        <span class="btn-action">답글 2</span><span class="btn-action">신고</span>
+                        <div class="vote-box">
+                            <button class="v-btn" onclick="vt(this)">👍 <b>54</b></button>
+                            <button class="v-btn" onclick="vt(this)">👎 0</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="cmt-item">
+                    <div class="cmt-user">mus*** <span class="cmt-date live-time" data-min="18">18분 전</span></div>
+                    <div class="cmt-text">이름이 LOPXEEVER? 뭔가 힙하다. 5세대 걸그룹 전쟁 재밌어지겠네.</div>
+                    <div class="cmt-actions">
+                        <span class="btn-action">답글</span><span class="btn-action">신고</span>
+                        <div class="vote-box">
+                            <button class="v-btn" onclick="vt(this)">👍 <b>32</b></button>
+                            <button class="v-btn" onclick="vt(this)">👎 1</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="side-box">
+            <div class="side-title">가요 주요뉴스</div>
+            <div class="side-item"><span>1</span> LOPXEEVER 데뷔 임박, 업계 주목</div>
+            <div class="side-item"><span>2</span> Hael 엔터, 신인 마케팅 전략은?</div>
+            <div class="side-item"><span>3</span> 5세대 걸그룹, 비주얼 경쟁 가속</div>
+        </div>
+    </div>
+</div>
+
+<footer>Copyright ⓒ K-EXPRESS. All rights reserved.</footer>
+
+<script>
+    // Hàm cập nhật thời gian trôi cho comment
+    function updateCmtTimes() {
+        document.querySelectorAll('.live-time').forEach(el => {
+            const min = parseInt(el.getAttribute('data-min'));
+            el.innerText = min === 0 ? "방금 전" : `${min}분 전`;
+        });
+    }
+
+    function vt(btn) {
+        let b = btn.querySelector('b');
+        if(b) b.innerText = parseInt(b.innerText) + 1;
+        btn.onclick = null;
+        btn.style.opacity = "0.5";
+    }
+
+    function addC() {
+        const t = document.querySelector('textarea');
+        if(!t.value.trim()) return;
+        const h = `<div class="cmt-item">
+            <div class="cmt-user">guest_user <span class="cmt-date">방금 전</span></div>
+            <div class="cmt-text">${t.value}</div>
+            <div class="cmt-actions">
+                <span class="btn-action">답글</span><span class="btn-action">신고</span>
+                <div class="vote-box">
+                    <button class="v-btn" onclick="vt(this)">👍 <b>0</b></button>
+                    <button class="v-btn" onclick="vt(this)">👎 0</button>
+                </div>
+            </div>
+        </div>`;
+        document.getElementById('cmtWrap').insertAdjacentHTML('afterbegin', h);
+        t.value = "";
+    }
+
+    window.onload = updateCmtTimes;
+</script>
+</body>
+</html>
